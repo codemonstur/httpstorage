@@ -41,3 +41,9 @@ deploy: build
 	@hub release create -a target/$(NAME)-$(VERSION).jar -a target/$(NAME)-$(VERSION)-javadoc.jar -a target/$(NAME)-$(VERSION)-sources.jar -F src/docs/releases/release-$(VERSION).txt $(NAME)-$(VERSION)
 	@echo "[$(NAME)] Uploading to maven central"
 	@mvn clean deploy -P release
+
+docker: build
+	@echo "[$(NAME)] Building docker image and pushing to public hub"
+	@docker build --file src/docker/Dockerfile -t jurgenned/httpstorage:latest target
+	@docker login
+	@docker push jurgenned/httpstorage:latest
