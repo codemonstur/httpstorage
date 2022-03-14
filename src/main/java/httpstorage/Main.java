@@ -1,4 +1,4 @@
-package simplestorage;
+package httpstorage;
 
 import io.undertow.Undertow;
 import io.undertow.server.HttpHandler;
@@ -14,6 +14,7 @@ import static io.undertow.util.StatusCodes.METHOD_NOT_ALLOWED;
 public enum Main {;
 
     public static void main(final String... args) {
+        System.setProperty("org.jboss.logging.provider", "slf4j");
 
         final HttpHandler download = newDownloadHandler();
         final HttpHandler upload = newUploadHandler();
