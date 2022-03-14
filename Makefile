@@ -44,6 +44,7 @@ deploy: build
 
 docker: build
 	@echo "[$(NAME)] Building docker image and pushing to public hub"
+	@cp target/$(NAME)-$(VERSION).jar target/$(NAME).jar
 	@docker build --file src/docker/Dockerfile -t jurgenned/httpstorage:latest target
 	@docker login
 	@docker push jurgenned/httpstorage:latest
