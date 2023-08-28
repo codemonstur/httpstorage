@@ -3,4 +3,4 @@ include https://raw.githubusercontent.com/codemonstur/bobfiles/master/foss-lib-g
 version: 1.0.0
 enablePreview: false
 dependencies:
-  - repository: io.undertow:undertow-core:2.3.3.Final
+  - repository: io.undertow:undertow-core:2.3.8.Final
